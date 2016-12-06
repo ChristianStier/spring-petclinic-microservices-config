@@ -6,6 +6,11 @@ zuul:
     visits-service: /visit/**
     customers-service: /customer/**
     api-gateway: /gateway/**
+  semaphore:
+    max-semaphores: 1000
+  host:
+    max-total-connections: 1000
+    max-per-route-connections: 1000
 
 server:
   port: 8080
@@ -16,3 +21,11 @@ server:
 
 # Internationalization
 spring.messages.basename: messages/messages
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000    
+  
