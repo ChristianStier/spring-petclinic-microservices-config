@@ -2,3 +2,18 @@
   instance:
     # enable to register multiple app instances with a random server port
     instance-id: ${spring.application.name}:${random.uuid}
+    
+server:
+    tomcat:
+        max-threads: 4000
+spring:
+    datasource:
+        default-transaction-isolation: 4
+        default-transaction-isolation-level: 4
+        max-active: 800
+        maxActive: 800
+        tomcat:
+            default-transaction-isolation: 4
+            max-active: 4000
+    jpa:
+        defaultIsolationLevel: repeatable_read
